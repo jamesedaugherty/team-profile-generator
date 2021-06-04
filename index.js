@@ -12,17 +12,17 @@ createManager = () => {
             type: "input",
             name: "name",
             message: "Enter the managers name",
-        }
+        },
         {
             type: "input",
             name: "id",
             message: "What is the team manager's id?",
-        }
+        },
         {
             type: "input",
             name: "email",
-            message: "What is the team amanger's email?",
-        }
+            message: "What is the team manager's email?",
+        },
         {
             type: "input",
             name: "officeNumber",
@@ -40,17 +40,17 @@ createEngineer = () => {
             type: "input",
             name: "name",
             message: "Enter the engineer's name",
-        }
+        },
         {
             type: "input",
             name: "id",
             message: "What is the engineer's id?",
-        }
+        },
         {
             type: "input",
             name: "email",
             message: "What is the engineer's primary email?",
-        }
+        },
         {
             type: "input",
             name: "github",
@@ -69,17 +69,17 @@ createIntern = () => {
             type: "input",
             name: "name",
             message: "Enter the managers name",
-        }
+        },
         {
             type: "input",
             name: "id",
             message: "What is the intern's id?",
-        }
+        },
         {
             type: "input",
             name: "email",
             message: "What is the intern's email?",
-        }
+        },
         {
             type: "input",
             name: "school",
