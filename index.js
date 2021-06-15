@@ -4,8 +4,10 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-menu = () => {}
-    
+menu = () => {
+
+}
+
 createManager = () => {
     inquirer.prompt([
         {
@@ -33,6 +35,8 @@ createManager = () => {
         console.log(manager)
     });
 }
+
+createManager ();
 //
 createEngineer = () => {
     inquirer.prompt([
@@ -57,11 +61,11 @@ createEngineer = () => {
             message: "What is the team members GitHub username?",
         }
     ]).then(({name, id, email, github}) => {
-        const manager = new Engineer(name, id, email, github);
+        const engineer = new Engineer(name, id, email, github);
         console.log(engineer)
     });
 }
-
+createEngineer();
 //
 createIntern = () => {
     inquirer.prompt([
@@ -85,12 +89,11 @@ createIntern = () => {
             name: "school",
             message: "Where did the intern attend school?",
         }
+
     ]).then(({name, id, email, school}) => {
-        const manager = new Intern (name, id, email, school);
-        console.log(manager)
+        const intern = new Intern (name, id, email, school);
+        console.log(intern)
     });
 }
-createManager();
+createIntern();
 
-
-Menu();
