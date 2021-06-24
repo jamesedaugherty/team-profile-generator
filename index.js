@@ -3,57 +3,64 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
+const teamMembers = [];
 
 
 
-// createManager = () => {
-//     inquirer
-//     .prompt([
-//         {
-//             type: "input",
-//             name: "name",
-//             message: "Enter the managers name",
-//         },
-//         {
-//             type: "input",
-//             name: "id",
-//             message: "What is the team manager's id?",
-//         },
-//         {
-//             type: "input",
-//             name: "email",
-//             message: "What is the team manager's email?",
-//         },
-//         {
-//             type: "input",
-//             name: "officeNumber",
-//             message: "What is the team manager's office number?",
-//         }
-//     ]).then(({name, id, email, officeNumber}) => {
-//         const manager = new Manager(name, id, email, officeNumber);
-//         console.log(manager)
-//     });
-// }
-// createManager ();
+
+const createManager = () => {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Enter the managers name",
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is the team manager's id?",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is the team manager's email?",
+        },
+        {
+            type: "input",
+            name: "officeNumber",
+            message: "What is the team manager's office number?",
+        }
+    ]).then(({name, id, email, officeNumber}) => {
+        const manager = new Manager(name, id, email, officeNumber);
+        teamMembers.push(manager); 
+        menu();
+        console.log(manager)
+    });
+}
 
 //Menu boilerplate from inquirer docs
-menu = () => {
+const menu = () => {
     inquirer
   .prompt([
     {type: "list",
-    name: "answers",
+    name: "options",
     message: "Select the type of team member you'd like to create.",
-    choices: ["Engineer", "Intern"],
+    choices: ["Engineer", "Intern", "Exit"], //Third option to exit application if not picking engineer or intern
     }])
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-    if (answers.choices === "Engineer") {
+  .then((options) => {
+      console.log(options)
+    if (options.options === "Engineer") {
         createEngineer();
-    } else createIntern();
+    } else if (options.options === "Intern") 
+    {
+        createIntern()
+    } //else create html
   })
 }
+//menu();
 
-createEngineer = () => {
+const createEngineer = () => {
     inquirer
     .prompt([
         {
@@ -78,11 +85,13 @@ createEngineer = () => {
         }
     ]).then(({name, id, email, github}) => {
         const engineer = new Engineer(name, id, email, github);
-        console.log(engineer)
+        teamMembers.push(engineer);
+        console.log(engineer);
+        menu();
     });
 
 //
-createIntern = () => {
+const createIntern = () => {
     inquirer
     .prompt([
         {
@@ -108,7 +117,9 @@ createIntern = () => {
 
     ]).then(({name, id, email, school}) => {
         const intern = new Intern (name, id, email, school);
-        console.log(intern)
+        teamMembers.push(intern);
+        console.log(intern);
+        menu();
     })}}
 
 
@@ -122,3 +133,5 @@ createIntern = () => {
     //       console.log("Your README.md has been successfully generated!");
     //     });
     //   }
+
+    createManager ();
