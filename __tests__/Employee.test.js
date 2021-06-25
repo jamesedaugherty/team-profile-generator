@@ -11,17 +11,17 @@ test("getName() return employee name", () => {
 });
 
 test("getID() new employee id", () => {
-    const newEmp = new Employee("James", 2);
-    expect(newEmp.getID()).toBe(2);
+    const newEmp = new Employee("James", 4);
+    expect(newEmp.getID()).toBe(4);
 });
 
 test("getEmail() returns employee email", () => {
-    const newEmp = new Employee("James", 2, "james@email.com");
+    const newEmp = new Employee("James", 4, "james@email.com");
     expect(newEmp.getEmail()).toBe("james@email.com");
 });
 
 test(" get role() return employee" , () => {
-    const newEmp = new Employee("James", 2, "james@email.com");
+    const newEmp = new Employee("James", 4, "james@email.com");
     expect(newEmp.getRole()).toBe("Employee");
 });
 
